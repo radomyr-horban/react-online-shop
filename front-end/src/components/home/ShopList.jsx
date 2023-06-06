@@ -17,7 +17,7 @@ const ShopList = () => {
   }
 
   return (
-    <div className='left'>
+    <div className='shops-list-container'>
       {Object.keys(shopItemsData).map((shopName) => (
         <Shop
           shopName={shopName}

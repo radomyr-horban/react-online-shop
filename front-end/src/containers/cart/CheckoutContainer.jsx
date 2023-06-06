@@ -5,7 +5,7 @@ import OrderForm from '../../components/cart/OrderForm'
 
 const CheckoutContainer = ({ totalOrderPrice, setTotalOrderPrice }) => {
   return (
-    <div className='container'>
+    <div className='checkout-container'>
       <OrderForm
         totalOrderPrice={totalOrderPrice}
         setTotalOrderPrice={setTotalOrderPrice}

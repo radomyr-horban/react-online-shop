@@ -6,7 +6,7 @@ const CheckoutBox = ({ totalOrderPrice }) => {
   const { cart } = useContext(CartContext)
 
   return (
-    <div className='checkout'>
+    <div className='checkout-panel'>
       <p id='total-price'>
         Total price: <span>{totalOrderPrice} $</span>
       </p>

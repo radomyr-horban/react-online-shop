@@ -70,7 +70,7 @@ const OrderForm = ({ totalOrderPrice, setTotalOrderPrice }) => {
     <>
       <form
         action='/cart'
-        className='flexbox-form'
+        className='order-form-container'
         id='userInfo'
         onSubmit={handleSubmit}
       >

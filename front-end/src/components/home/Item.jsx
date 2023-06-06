@@ -38,7 +38,7 @@ const Item = ({ data }) => {
       </div>
       <button
         id={`add-btn-${id}`}
-        className={`btn-item ${isAddedToCart ? 'added' : ''}`}
+        className={`btn-item ${isAddedToCart ? 'added-to-cart' : ''}`}
         onClick={() => handleClick(id)}
       >
         {isAddedToCart ? 'Added to Cart' : 'Add to Cart'}

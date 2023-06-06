@@ -7,7 +7,7 @@ const Shop = ({ shopName, onClick, isActive }) => {
 
   return (
     <div
-      className={`shop-box ${isActive ? 'active' : ''}`}
+      className={`shop-box ${isActive ? 'active-shop' : ''}`}
       id={shopName}
       onClick={handleClick}
     >
