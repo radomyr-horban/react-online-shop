@@ -12,10 +12,10 @@ const CheckoutBox = ({ totalOrderPrice }) => {
       </p>
       <input
         type='submit'
-        value='Submit'
         form='userInfo'
         id='submit-btn'
         disabled={cart.length ? false : true}
+        readOnly
       />
     </div>
   )

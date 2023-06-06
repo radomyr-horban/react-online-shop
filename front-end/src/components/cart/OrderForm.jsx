@@ -44,10 +44,10 @@ const OrderForm = ({ totalOrderPrice, setTotalOrderPrice }) => {
       setError(json.error)
     }
     if (response.ok) {
-      setUserName('')
-      setUserEmail('')
-      setUserPhone('')
-      setUserAddress('')
+      setUserName('Your name')
+      setUserEmail('Your email')
+      setUserPhone('Your phone')
+      setUserAddress('Your address')
       setError(null)
       console.log('Order was sent', json)
     }
@@ -62,7 +62,6 @@ const OrderForm = ({ totalOrderPrice, setTotalOrderPrice }) => {
       setTotalCartItems(getTotalCartItems(updatedCart))
       setTotalOrderPrice(calculateTotalAmount(updatedCart))
     }
-
     e.target.reset()
   }
 
@@ -113,8 +112,6 @@ const OrderForm = ({ totalOrderPrice, setTotalOrderPrice }) => {
           placeholder={userAddress}
           onChange={(e) => setUserAddress(e.target.value)}
         />
-
-        <input type='text' id='user-order' name='user_order' value='' />
       </form>
       {error && <div>{error}</div>}
     </>
