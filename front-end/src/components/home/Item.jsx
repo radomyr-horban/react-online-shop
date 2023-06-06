@@ -27,7 +27,6 @@ const Item = ({ data }) => {
   const handleClick = (id) => {
     addToCart(id)
     setIsAddedToCart(true)
-    // console.log('updatedCart in Item', cart)
   }
 
   return (

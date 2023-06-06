@@ -14,7 +14,6 @@ const OrderForm = ({ totalOrderPrice, setTotalOrderPrice }) => {
 
   const [error, setError] = useState(null)
 
-  console.log(cart)
   const handleSubmit = async (e) => {
     e.preventDefault()
 
@@ -27,13 +26,17 @@ const OrderForm = ({ totalOrderPrice, setTotalOrderPrice }) => {
       totalOrderPrice: totalOrderPrice,
     }
 
-    const response = await fetch('http://localhost:4000/cart', {
-      method: 'POST',
-      body: JSON.stringify(orderData),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
+    const response = await fetch(
+      `${process.env.REACT_APP_CORS_ORIGIN_DEPLOY_SERVER}/cart` ||
+        'http://localhost:4000/cart',
+      {
+        method: 'POST',
+        body: JSON.stringify(orderData),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    )
 
     const json = await response.json()
 
@@ -67,7 +70,6 @@ const OrderForm = ({ totalOrderPrice, setTotalOrderPrice }) => {
     <>
       <form
         action='/cart'
-        // method='POST'
         className='flexbox-form'
         id='userInfo'
         onSubmit={handleSubmit}
@@ -78,7 +80,6 @@ const OrderForm = ({ totalOrderPrice, setTotalOrderPrice }) => {
           type='text'
           id='name'
           name='name'
-          // placeholder='Your name'
           placeholder={userName}
           onChange={(e) => setUserName(e.target.value)}
         />
@@ -89,7 +90,6 @@ const OrderForm = ({ totalOrderPrice, setTotalOrderPrice }) => {
           type='email'
           id='email'
           name='email'
-          // placeholder='Your email'
           placeholder={userEmail}
           onChange={(e) => setUserEmail(e.target.value)}
         />
@@ -100,7 +100,6 @@ const OrderForm = ({ totalOrderPrice, setTotalOrderPrice }) => {
           type='tel'
           id='phone'
           name='phone'
-          // placeholder='Your phone'
           placeholder={userPhone}
           onChange={(e) => setUserPhone(e.target.value)}
         />
@@ -111,7 +110,6 @@ const OrderForm = ({ totalOrderPrice, setTotalOrderPrice }) => {
           type='text'
           id='address'
           name='address'
-          // placeholder='Your address'
           placeholder={userAddress}
           onChange={(e) => setUserAddress(e.target.value)}
         />

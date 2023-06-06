@@ -1,11 +1,10 @@
-const path = require('path')
 const express = require('express')
 const mongoose = require('mongoose')
 const cors = require('cors')
 
 const routes = require('./routes/routes')
 
-require('dotenv').config({ path: path.resolve(__dirname, '../.env') })
+require('dotenv').config()
 
 const PORT = process.env.PORT || 4000
 const app = express()
@@ -14,7 +13,7 @@ const app = express()
 app.use(express.json())
 app.use(
   cors({
-    origin: '*',
+    origin: process.env.CORS_ORIGIN_DEPLOY_CLIENT || 'http://localhost:3000',
   })
 )
 

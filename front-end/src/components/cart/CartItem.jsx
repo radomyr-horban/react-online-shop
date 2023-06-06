@@ -12,7 +12,6 @@ const CartItem = ({ data, setTotalOrderPrice }) => {
 
   const removeItem = (id) => {
     const updatedCart = cart.filter((item) => item.id !== id)
-    // console.log('remove item', updatedCart)
 
     setCart(updatedCart)
     localStorage.setItem('cart', JSON.stringify(updatedCart))
@@ -33,8 +32,6 @@ const CartItem = ({ data, setTotalOrderPrice }) => {
       }
       return item
     })
-
-    // console.log('update item', updatedCart)
 
     setCart(updatedCart)
     localStorage.setItem('cart', JSON.stringify(updatedCart))
