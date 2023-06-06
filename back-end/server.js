@@ -13,7 +13,9 @@ const app = express()
 app.use(express.json())
 app.use(
   cors({
-    origin: process.env.CORS_ORIGIN_DEPLOY_CLIENT || 'http://localhost:3000',
+    origin:
+      process.env.REACT_APP_CORS_ORIGIN_DEPLOY_CLIENT ||
+      'http://localhost:3000',
   })
 )
 
