@@ -27,7 +27,7 @@ const OrderForm = ({ totalOrderPrice, setTotalOrderPrice }) => {
       totalOrderPrice: totalOrderPrice,
     }
 
-    const response = await fetch('/cart', {
+    const response = await fetch('http://localhost:4000/cart', {
       method: 'POST',
       body: JSON.stringify(orderData),
       headers: {

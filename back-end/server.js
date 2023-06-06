@@ -1,18 +1,22 @@
-require('dotenv').config()
-
+const path = require('path')
 const express = require('express')
 const mongoose = require('mongoose')
-const bodyParser = require('body-parser')
-const path = require('path')
+const cors = require('cors')
 
-const Order = require('./models/orderModel')
 const routes = require('./routes/routes')
+
+require('dotenv').config({ path: path.resolve(__dirname, '../.env') })
 
 const PORT = process.env.PORT || 4000
 const app = express()
 
 // middleware
 app.use(express.json())
+app.use(
+  cors({
+    origin: '*',
+  })
+)
 
 app.use((req, res, next) => {
   console.log(req.path, req.method)

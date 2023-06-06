@@ -1,6 +1,6 @@
 # React online shop
 
-[![GitHub license](https://img.shields.io/github/license/Radomyr-kh/online-shop)](https://github.com/Radomyr-kh/online-shop/main/LICENSE.md)
+[![GitHub license](https://img.shields.io/github/license/radomyr-horban/react-online-shop)](https://github.com/radomyr-horban/react-online-shop/main/LICENSE.md)
 
 ## Description
 
