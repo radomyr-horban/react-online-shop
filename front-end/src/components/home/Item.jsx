@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react'
+
 import { CartContext } from '../../App'
 
 const Item = ({ data }) => {
@@ -31,7 +32,7 @@ const Item = ({ data }) => {
 
   return (
     <div className='item-box' id={id}>
-      <img src={require(`../../assets/img/${img}`)} alt={name} />{' '}
+      <img src={require(`../../assets/img/${img}`)} alt={name} />
       <div className='item-box-info'>
         <span>{name}</span>
         <span>${price}</span>

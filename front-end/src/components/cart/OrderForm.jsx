@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 
 import { CartContext } from '../../App'
 import calculateTotalAmount from '../../utils/calculateTotalAmount'
-import getTotalCartItems from '../../utils/getTotalCartItems'
+import getTotalCartItems from '../../utils/calculateTotalCartItemsQuantity'
 
 const OrderForm = ({ totalOrderPrice, setTotalOrderPrice }) => {
   const { cart, setCart, setTotalCartItems } = useContext(CartContext)
@@ -11,7 +11,6 @@ const OrderForm = ({ totalOrderPrice, setTotalOrderPrice }) => {
   const [userEmail, setUserEmail] = useState('Your email')
   const [userPhone, setUserPhone] = useState('Your phone')
   const [userAddress, setUserAddress] = useState('Your address')
-
   const [error, setError] = useState(null)
 
   const handleSubmit = async (e) => {
@@ -23,7 +22,7 @@ const OrderForm = ({ totalOrderPrice, setTotalOrderPrice }) => {
       userPhone,
       userAddress,
       userOrder: cart,
-      totalOrderPrice: totalOrderPrice,
+      totalOrderPrice,
     }
 
     const response = await fetch(

@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import NavBar from './components/NavBar'
 import Cart from './pages/Cart'
-import getTotalCartItems from './utils/getTotalCartItems'
+import getTotalCartItems from './utils/calculateTotalCartItemsQuantity'
 
 export const CartContext = React.createContext()
 
