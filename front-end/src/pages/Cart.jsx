@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 
 import CheckoutBox from '../components/cart/CheckoutBox'
 import CheckoutContainer from '../containers/cart/CheckoutContainer'
-import calculateTotalAmount from '../services/calculateTotalAmount'
+import calculateTotalAmount from '../utils/calculateTotalAmount'
 import { CartContext } from '../App'
 
 const Cart = () => {

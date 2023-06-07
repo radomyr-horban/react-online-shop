@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
-import shopItemsData from '../../constants/Data'
+import shopItemsData from '../../constants/shopItemsData'
 import Shop from './Shop'
 import { CurrentShopContext } from '../../pages/Home'
 

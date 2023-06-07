@@ -1,4 +1,4 @@
-import shopItemsData from '../constants/Data'
+import shopItemsData from '../constants/shopItemsData'
 import mapShopItemsData from './mapShopItemsData'
 
 const calculateTotalAmount = (cart) => {

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import Item from '../../components/home/Item'
 import { CurrentShopContext } from '../../pages/Home'
-import shopItemsData from '../../constants/Data'
+import shopItemsData from '../../constants/shopItemsData'
 
 const ItemsContainer = () => {
   const { currentShop } = useContext(CurrentShopContext)

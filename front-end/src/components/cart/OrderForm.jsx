@@ -1,8 +1,8 @@
 import React, { useContext, useState } from 'react'
 
 import { CartContext } from '../../App'
-import calculateTotalAmount from '../../services/calculateTotalAmount'
-import getTotalCartItems from '../../services/getTotalCartItems'
+import calculateTotalAmount from '../../utils/calculateTotalAmount'
+import getTotalCartItems from '../../utils/getTotalCartItems'
 
 const OrderForm = ({ totalOrderPrice, setTotalOrderPrice }) => {
   const { cart, setCart, setTotalCartItems } = useContext(CartContext)

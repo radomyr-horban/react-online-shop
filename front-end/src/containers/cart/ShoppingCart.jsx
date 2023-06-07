@@ -1,8 +1,8 @@
 import React, { useContext } from 'react'
 
-import shopItemsData from '../../constants/Data'
+import shopItemsData from '../../constants/shopItemsData'
 import CartItem from '../../components/cart/CartItem'
-import mapShopItemsData from '../../services/mapShopItemsData'
+import mapShopItemsData from '../../utils/mapShopItemsData'
 import { CartContext } from '../../App'
 
 const ShoppingCart = ({ totalOrderPrice, setTotalOrderPrice }) => {

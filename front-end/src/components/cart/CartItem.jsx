@@ -1,8 +1,8 @@
 import React, { useContext, useState } from 'react'
 
 import { CartContext } from '../../App'
-import getTotalCartItems from '../../services/getTotalCartItems'
-import calculateTotalAmount from '../../services/calculateTotalAmount'
+import getTotalCartItems from '../../utils/getTotalCartItems'
+import calculateTotalAmount from '../../utils/calculateTotalAmount'
 
 const CartItem = ({ data, setTotalOrderPrice }) => {
   const { id, name, price, img } = data
