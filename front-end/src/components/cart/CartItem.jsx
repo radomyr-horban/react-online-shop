@@ -42,23 +42,23 @@ const CartItem = ({ data, setTotalOrderPrice }) => {
 
   return (
     <div className='cart-item-box' id={id} key={id}>
-      <img src={require(`../../assets/img/${img}`)} alt={name} />
+      <img alt={name} src={require(`../../assets/img/${img}`)} />
       <div className='cart-item-box-info'>
-        <i onClick={removeItem} className='bi bi-x-lg'></i>
+        <i className='bi bi-x-lg' onClick={removeItem}></i>
         <p>{name}</p>
         <div>
           <span className='price'>{price}</span>
           <span>$</span>
         </div>
         <input
-          id={`input-${id}`}
-          type='number'
-          min='1'
-          value={itemQuantity}
           className='cart-item-quantity'
+          form='userInfo'
+          id={`input-${id}`}
+          min='1'
           name='cart-item'
           onChange={(e) => handleItemChange(e)}
-          form='userInfo'
+          type='number'
+          value={itemQuantity}
         />
       </div>
     </div>

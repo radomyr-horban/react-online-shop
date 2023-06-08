@@ -14,12 +14,12 @@ const Cart = () => {
   return (
     <>
       <CheckoutContainer
-        totalOrderPrice={totalOrderPrice}
         setTotalOrderPrice={setTotalOrderPrice}
+        totalOrderPrice={totalOrderPrice}
       />
       <CheckoutBox
-        totalOrderPrice={totalOrderPrice}
         setTotalOrderPrice={setTotalOrderPrice}
+        totalOrderPrice={totalOrderPrice}
       />
     </>
   )

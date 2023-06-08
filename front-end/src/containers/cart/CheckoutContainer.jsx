@@ -7,12 +7,12 @@ const CheckoutContainer = ({ totalOrderPrice, setTotalOrderPrice }) => {
   return (
     <div className='checkout-container'>
       <OrderForm
-        totalOrderPrice={totalOrderPrice}
         setTotalOrderPrice={setTotalOrderPrice}
+        totalOrderPrice={totalOrderPrice}
       />
       <ShoppingCart
-        totalOrderPrice={totalOrderPrice}
         setTotalOrderPrice={setTotalOrderPrice}
+        totalOrderPrice={totalOrderPrice}
       />
     </div>
   )

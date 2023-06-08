@@ -9,7 +9,7 @@ const ItemsContainer = () => {
   return (
     <div className='shop'>
       {shopItemsData[currentShop].map((item) => (
-        <Item key={item.id} data={item} />
+        <Item data={item} key={item.id} />
       ))}
     </div>
   )

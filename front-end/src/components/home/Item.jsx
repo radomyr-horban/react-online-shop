@@ -32,14 +32,14 @@ const Item = ({ data }) => {
 
   return (
     <div className='item-box' id={id}>
-      <img src={require(`../../assets/img/${img}`)} alt={name} />
+      <img alt={name} src={require(`../../assets/img/${img}`)} />
       <div className='item-box-info'>
         <span>{name}</span>
         <span>${price}</span>
       </div>
       <button
-        id={`add-btn-${id}`}
         className={`btn-item ${isAddedToCart ? 'added-to-cart' : ''}`}
+        id={`add-btn-${id}`}
         onClick={() => handleClick(id)}
       >
         {isAddedToCart ? 'Added to Cart' : 'Add to Cart'}

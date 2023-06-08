@@ -22,10 +22,10 @@ const ShoppingCart = ({ totalOrderPrice, setTotalOrderPrice }) => {
       ) : (
         cartItems.map((item) => (
           <CartItem
-            key={item.id}
             data={item}
-            totalOrderPrice={totalOrderPrice}
+            key={item.id}
             setTotalOrderPrice={setTotalOrderPrice}
+            totalOrderPrice={totalOrderPrice}
           />
         ))
       )}

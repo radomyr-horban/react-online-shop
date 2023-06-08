@@ -22,7 +22,7 @@ const OrderForm = ({ totalOrderPrice, setTotalOrderPrice }) => {
       userPhone,
       userAddress,
       userOrder: cart,
-      totalOrderPrice,
+      totalOrderPrice
     }
 
     const response = await fetch(
@@ -32,8 +32,8 @@ const OrderForm = ({ totalOrderPrice, setTotalOrderPrice }) => {
         method: 'POST',
         body: JSON.stringify(orderData),
         headers: {
-          'Content-Type': 'application/json',
-        },
+          'Content-Type': 'application/json'
+        }
       }
     )
 
@@ -74,42 +74,42 @@ const OrderForm = ({ totalOrderPrice, setTotalOrderPrice }) => {
       >
         <label htmlFor='name'>Name:</label>
         <input
-          required
-          type='text'
           id='name'
           name='name'
-          placeholder={userName}
           onChange={(e) => setUserName(e.target.value)}
+          placeholder={userName}
+          required
+          type='text'
         />
 
         <label htmlFor='email'>Email:</label>
         <input
-          required
-          type='email'
           id='email'
           name='email'
-          placeholder={userEmail}
           onChange={(e) => setUserEmail(e.target.value)}
+          placeholder={userEmail}
+          required
+          type='email'
         />
 
         <label htmlFor='phone'>Phone:</label>
         <input
-          required
-          type='tel'
           id='phone'
           name='phone'
-          placeholder={userPhone}
           onChange={(e) => setUserPhone(e.target.value)}
+          placeholder={userPhone}
+          required
+          type='tel'
         />
 
         <label htmlFor='address'>Address:</label>
         <input
-          required
-          type='text'
           id='address'
           name='address'
-          placeholder={userAddress}
           onChange={(e) => setUserAddress(e.target.value)}
+          placeholder={userAddress}
+          required
+          type='text'
         />
       </form>
       {error && <div>{error}</div>}

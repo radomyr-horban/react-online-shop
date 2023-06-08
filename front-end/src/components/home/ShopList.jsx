@@ -20,10 +20,10 @@ const ShopList = () => {
     <div className='shops-list-container'>
       {Object.keys(shopItemsData).map((shopName) => (
         <Shop
-          shopName={shopName}
+          isActive={activeShop === shopName}
           key={shopName}
           onClick={handleShopClick}
-          isActive={activeShop === shopName}
+          shopName={shopName}
         />
       ))}
     </div>
