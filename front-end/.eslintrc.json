@@ -23,6 +23,7 @@
     }
   },
   "rules": {
+    "no-unused-vars": "warn",
     "prefer-arrow-callback": ["error"],
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",

@@ -4,14 +4,16 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import NavBar from './components/NavBar'
 import Cart from './pages/Cart'
-import getTotalCartItems from './utils/calculateTotalCartItemsQuantity'
+import calculateTotalCartItemsQuantity from './utils/calculateTotalCartItemsQuantity'
 
 export const CartContext = React.createContext()
 
 function App() {
   const initialData = localStorage.getItem('cart')
   const [cart, setCart] = useState(initialData ? JSON.parse(initialData) : [])
-  const [totalCartItems, setTotalCartItems] = useState(getTotalCartItems(cart))
+  const [totalCartItems, setTotalCartItems] = useState(
+    calculateTotalCartItemsQuantity(cart)
+  )
 
   useEffect(() => {
     localStorage.setItem('cart', JSON.stringify(cart))
