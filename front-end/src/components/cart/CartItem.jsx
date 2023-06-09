@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react'
 
 import { CartContext } from '../../App'
-import getTotalCartItems from '../../utils/calculateTotalCartItemsQuantity'
+import calculateTotalCartItemsQuantity from '../../utils/calculateTotalCartItemsQuantity'
 import calculateTotalAmount from '../../utils/calculateTotalAmount'
 
 const CartItem = ({ data, setTotalOrderPrice }) => {
@@ -9,14 +9,10 @@ const CartItem = ({ data, setTotalOrderPrice }) => {
   const { cart, setCart, setTotalCartItems } = useContext(CartContext)
   const [itemQuantity, setItemQuantity] = useState(quantity)
 
-  useEffect(() => {
-    updateCart()
-  }, [itemQuantity])
-
   const updateCartAndTotal = (updatedCart) => {
     setCart(updatedCart)
     localStorage.setItem('cart', JSON.stringify(updatedCart))
-    setTotalCartItems(getTotalCartItems(updatedCart))
+    setTotalCartItems(calculateTotalCartItemsQuantity(updatedCart))
     setTotalOrderPrice(calculateTotalAmount(updatedCart))
   }
 
@@ -27,16 +23,31 @@ const CartItem = ({ data, setTotalOrderPrice }) => {
     updateCartAndTotal(updatedCart)
   }
 
+  useEffect(() => {
+    updateCart()
+  }, [itemQuantity])
+
   const removeItem = () => {
     const updatedCart = cart.filter((item) => item.id !== id)
     updateCartAndTotal(updatedCart)
   }
 
   const handleItemChange = (e) => {
-    let newValue = parseInt(e.target.value)
+    const inputValue = e.target.value
+    let newValue = parseInt(inputValue)
+
     if (isNaN(newValue) || newValue < 1) {
       newValue = 1
     }
+
+    if (inputValue.length > 2) {
+      newValue = parseInt(inputValue.slice(0, 2))
+    }
+
+    if (newValue > 20) {
+      newValue = 20
+    }
+
     setItemQuantity(newValue)
   }
 
@@ -54,6 +65,7 @@ const CartItem = ({ data, setTotalOrderPrice }) => {
           className='cart-item-quantity'
           form='userInfo'
           id={`input-${id}`}
+          max='20'
           min='1'
           name='cart-item'
           onChange={(e) => handleItemChange(e)}

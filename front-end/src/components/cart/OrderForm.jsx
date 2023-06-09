@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 
 import { CartContext } from '../../App'
 import calculateTotalAmount from '../../utils/calculateTotalAmount'
-import getTotalCartItems from '../../utils/calculateTotalCartItemsQuantity'
+import calculateTotalCartItemsQuantity from '../../utils/calculateTotalCartItemsQuantity'
 
 const OrderForm = ({ totalOrderPrice, setTotalOrderPrice }) => {
   const { cart, setCart, setTotalCartItems } = useContext(CartContext)
@@ -58,7 +58,7 @@ const OrderForm = ({ totalOrderPrice, setTotalOrderPrice }) => {
 
       setCart(updatedCart)
       localStorage.setItem('cart', JSON.stringify(updatedCart))
-      setTotalCartItems(getTotalCartItems(updatedCart))
+      setTotalCartItems(calculateTotalCartItemsQuantity(updatedCart))
       setTotalOrderPrice(calculateTotalAmount(updatedCart))
     }
     e.target.reset()

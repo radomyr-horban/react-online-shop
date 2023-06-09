@@ -1,6 +1,7 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 
 import { CartContext } from '../../App'
+import calculateTotalCartItemsQuantity from '../../utils/calculateTotalCartItemsQuantity'
 
 const Item = ({ data }) => {
   const { id, name, price, img } = data
@@ -8,26 +9,37 @@ const Item = ({ data }) => {
   const { cart, setCart, setTotalCartItems } = useContext(CartContext)
   const [isAddedToCart, setIsAddedToCart] = useState(false)
 
+  useEffect(() => {
+    setTotalCartItems(calculateTotalCartItemsQuantity(cart))
+    localStorage.setItem('cart', JSON.stringify(cart))
+  }, [cart, setTotalCartItems])
+
   const addToCart = (id) => {
     setCart((prevCart) => {
-      const duplicate = prevCart.find((el) => el.id === id)
-      if (duplicate) {
-        const updatedCart = prevCart.map((item) =>
-          item.id === id ? { ...item, quantity: item.quantity + 1 } : item
-        )
-        return updatedCart
-      } else {
-        return [...prevCart, { id, name, price, quantity: 1 }]
-      }
-    })
+      const existingItem = prevCart.find((item) => item.id === id)
 
-    setTotalCartItems((prevTotal) => prevTotal + 1)
-    localStorage.setItem('cart', JSON.stringify(cart))
+      if (existingItem) {
+        if (existingItem.quantity < 20) {
+          const updatedItem = {
+            ...existingItem,
+            quantity: existingItem.quantity + 1
+          }
+          const updatedCart = prevCart.map((item) =>
+            item.id === id ? updatedItem : item
+          )
+          return updatedCart
+        }
+        return prevCart
+      }
+
+      const newItem = { id, name, price, quantity: 1 }
+      return [...prevCart, newItem]
+    })
+    setIsAddedToCart(true)
   }
 
   const handleClick = (id) => {
     addToCart(id)
-    setIsAddedToCart(true)
   }
 
   return (
