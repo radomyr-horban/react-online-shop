@@ -9,7 +9,8 @@
 
 ## Built with
 
-- React, Node.js, Express, MongoDB, Mongoose, HTML, CSS
+- `backend`: Node.js, Express, MongoDB, Mongoose
+- `frontend`: React, JavaScript, HTML, CSS
 
 ## Demo
 
